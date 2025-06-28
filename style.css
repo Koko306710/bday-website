@@ -1,0 +1,158 @@
+/* -------------------  style.css  ------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* ---------- Root & fluid‑type helpers ---------- */
+:root {
+  --clr-deep-blue: #2A1458;   /* heart + accent */
+  --clr-blue-700: #01579b;    /* dark heading */
+  --clr-blue-600: #0277bd;    /* body text */
+  --clr-blue-500: #0288d1;    /* caption */
+  --clr-blue-btn:  #2196f3;   /* button */
+  --max-width: 960px;         /* desktop container */
+
+  /* Fluid type clamp(min, vw‑ratio, max)  */
+  --fs-h1:      clamp(2.3rem, 6vw + 0.4rem, 3.2rem);
+  --fs-intro:   clamp(1.5rem, 3.3vw + 0.2rem, 2rem);
+  --fs-body:    clamp(1.15rem, 2.4vw + 0.2rem, 1.4rem);
+  --fs-caption: clamp(1.3rem, 3vw  + 0.2rem, 1.8rem);
+}
+
+/* ---------- Base styles ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.4;
+  background: linear-gradient(to bottom, #e0f7fa 0%, #0d47a1 100%);
+  color: var(--clr-blue-600);
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* --- Dark purple‑blue heart stickers --- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A1458' d='M50 91s-1-.5-2-1C24 74 10 59 10 40c0-13 10-23 23-23 9 0 15 5 17 10 2-5 8-10 17-10 13 0 23 10 23 23 0 19-14 34-38 50-1 .5-2 1-2 1z'/%3E%3C/svg%3E") 10% 12% / 30px 30px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A1458' d='M50 91s-1-.5-2-1C24 74 10 59 10 40c0-13 10-23 23-23 9 0 15 5 17 10 2-5 8-10 17-10 13 0 23 10 23 23 0 19-14 34-38 50-1 .5-2 1-2 1z'/%3E%3C/svg%3E") 85% 18% / 26px 26px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A1458' d='M50 91s-1-.5-2-1C24 74 10 59 10 40c0-13 10-23 23-23 9 0 15 5 17 10 2-5 8-10 17-10 13 0 23 10 23 23 0 19-14 34-38 50-1 .5-2 1-2 1z'/%3E%3C/svg%3E") 25% 75% / 28px 28px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A1458' d='M50 91s-1-.5-2-1C24 74 10 59 10 40c0-13 10-23 23-23 9 0 15 5 17 10 2-5 8-10 17-10 13 0 23 10 23 23 0 19-14 34-38 50-1 .5-2 1-2 1z'/%3E%3C/svg%3E") 60% 60% / 24px 24px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A1458' d='M50 91s-1-.5-2-1C24 74 10 59 10 40c0-13 10-23 23-23 9 0 15 5 17 10 2-5 8-10 17-10 13 0 23 10 23 23 0 19-14 34-38 50-1 .5-2 1-2 1z'/%3E%3C/svg%3E") 6% 88% / 20px 20px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232A1458' d='M50 91s-1-.5-2-1C24 74 10 59 10 40c0-13 10-23 23-23 9 0 15 5 17 10 2-5 8-10 17-10 13 0 23 10 23 23 0 19-14 34-38 50-1 .5-2 1-2 1z'/%3E%3C/svg%3E") 90% 70% / 32px 32px no-repeat;
+  opacity: 0.45;
+}
+
+/* ---------- Main container ---------- */
+.container {
+  padding: 40px clamp(12px, 4vw, 20px);
+  max-width: var(--max-width);
+  margin: clamp(20px, 6vw, 40px) auto;
+  border-radius: 25px;
+
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 20px rgba(179, 229, 252, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(179, 229, 252, 0.7);
+}
+
+/* ---------- Headings ---------- */
+h1 {
+  font-size: var(--fs-h1);
+  margin-bottom: 10px;
+  color: var(--clr-blue-700);
+}
+
+/* ---------- Hero Image ---------- */
+.hero-img {
+  width: min(80%, 380px);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px 0;
+}
+
+/* ---------- Intro Text ---------- */
+.intro {
+  font-size: var(--fs-intro);
+  margin-bottom: 30px;
+  color: var(--clr-blue-600);
+}
+
+/* ---------- Gallery (responsive grid) ---------- */
+.gallery {
+  display: grid;
+  gap: 16px;
+  margin: 25px 0 40px;
+  /* 1 col on tiny phones, 2 on regular phones, 3‑4 on tablets & laptops */
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+@media (min-width: 480px) {
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+}
+@media (min-width: 768px) {
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .gallery { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1 / 1;      /* perfect square everywhere */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.gallery img:hover { transform: scale(1.05); }
+
+.caption {
+  font-size: var(--fs-caption);
+  margin-top: 8px;
+  color: var(--clr-blue-500);
+}
+
+/* ---------- Letters ---------- */
+.letter {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 25px;
+  margin: 25px auto;
+  max-width: 600px;
+  border-radius: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+.letter h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: var(--clr-blue-700);
+}
+.letter p {
+  font-size: var(--fs-body);
+  color: var(--clr-blue-600);
+}
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-block;
+  margin: 25px 10px;
+  padding: 12px 28px;
+  background-color: var(--clr-blue-btn);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: opacity 0.3s ease;
+}
+.btn:hover { opacity: 0.85; }
